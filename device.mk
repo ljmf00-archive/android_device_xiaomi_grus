@@ -173,6 +173,12 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     GoogleCamera
 
+# CODEC 2
+PRODUCT_PACKAGES += \
+    libcodec2_vndk.vendor \
+    libcodec2_hidl@1.0.vendor \
+    libavservices_minijail_vendor
+
 # CNE
 PRODUCT_PACKAGES += \
     cneapiclient \
@@ -250,10 +256,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
-
-# IMS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -415,17 +417,26 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librecovery_updater_xiaomi
 
+# RCS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
+
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
     android.hardware.radio.config@1.0 \
-    android.hardware.secure_element@1.0 \
-    android.hardware.secure_element@1.0-service \
     libcnefeatureconfig \
     libjson \
     librmnetctl \
     libxml2 \
     libprotobuf-cpp-full
+
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-rtti \
+    libprotobuf-cpp-lite-vendorcompat \
+    libprotobuf-cpp-full-vendorcompat
 
 # Sensor
 PRODUCT_PACKAGES += \
@@ -473,7 +484,14 @@ PRODUCT_PACKAGES += \
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk-sp \
+    libstdc++.vendor \
+    com.android.vndk.current.on_vendor
+
+# HWBinder
+PRODUCT_PACKAGES += \
+    libhwbinder \
+    libhwbinder.vendor
 
 # VR
 PRODUCT_PACKAGES += \
@@ -497,7 +515,8 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     wificond \
-    wifilogd
+    wifilogd \
+    wifi-mac-generator
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
@@ -564,6 +583,7 @@ PRODUCT_PACKAGES += \
 # vndfwk
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
     libqti_vndfwk_detect.qti
 
 PRODUCT_PACKAGES += \
