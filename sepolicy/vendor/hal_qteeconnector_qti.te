@@ -1,1 +1,1 @@
-get_prop(hal_qteeconnector_qti, hwservicemanager_prop)
+get_prop(vendor_hal_qteeconnector_qti, hwservicemanager_prop)
